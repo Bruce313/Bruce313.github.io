@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "better-console": "^0.2.4",
     "markdown": "^0.5.0"
   },
   "devDependencies": {},
