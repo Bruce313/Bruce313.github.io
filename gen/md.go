@@ -2,6 +2,7 @@ package main
 
 import (
 	"regexp"
+    "github.com/russross/blackfriday"
 )
 
 
@@ -18,7 +19,7 @@ var (
 )
 
 func (self *Md) Html() []byte {
-	return nil
+    return blackfriday.MarkdownCommon(self.Content)
 }
 
 func findCate(content string) (cate string) {
@@ -30,7 +31,11 @@ func findCate(content string) (cate string) {
 }
 
 func findTags(content string) (tags []string) {
-	out := reTags.FindStringSubmatch(content)[1:]
+	outs := reTags.FindStringSubmatch(content)
+    if len(outs) < 2 {
+        return nil
+    }
+    out := outs[1:]
 	for _, v := range out {
 		tags = append(tags, v[1:len(v)-1])
 	}
