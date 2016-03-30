@@ -45,7 +45,7 @@ func (self *HtmlGener) genBase() error {
         }
     }
     if err := ioutil.WriteFile(path.Join(self.rootDir, "..", "index.html"),
-        []byte(strings.Join(indexLinks, "")), 0644); err != nil {
+        []byte(strings.Join(indexLinks, "\n")), 0644); err != nil {
         return err
     }
     return nil
