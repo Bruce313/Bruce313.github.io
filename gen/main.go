@@ -1,7 +1,6 @@
 package main
 
 import (
-    "github.com/satori/go.uuid"
 	"io/ioutil"
 	"log"
     "path"
@@ -19,16 +18,23 @@ func main() {
     if err != nil {
         log.Fatal(`parse all md struct:`, err)
     }
-    //generate html files of `content html`
-    for _, m := range mds {
-        html := m.Html()
-        htmlName := uuid.NewV4().String()
-        htmlPath := path.Join(html_DIR, htmlName + ".html")
-        err = ioutil.WriteFile(htmlPath, html, 0644)
-        if err != nil {
-            log.Fatal(`write html file:`, err)
-        }
+    htmlGener := NewHtmlGener(mds, html_DIR)
+    if err := htmlGener.Gen(); err != nil {
+        log.Fatal(`gen html:`, err)
     }
+    //generate html files of `content html`
+    //for _, m := range mds {
+    //    html := m.Html()
+    //    htmlName := uuid.NewV4().String()
+    //    htmlPath := path.Join(html_DIR, htmlName + ".html")
+    //    err = ioutil.WriteFile(htmlPath, html, 0644)
+    //    if err != nil {
+    //        log.Fatal(`write html file:`, err)
+    //    }
+    //}
+    //gen nav by tags
+    //gen nav html by cate
+    //gen index.html
 }
 
 func ParseMd(mdDir string) (mds []Md, err error) {
