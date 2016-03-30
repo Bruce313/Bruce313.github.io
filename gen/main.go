@@ -8,8 +8,8 @@ import (
 )
 
 const (
-    md_DIR = "../md"
-    html_DIR = "../html"
+    md_DIR = "./md"
+    html_DIR = "./html"
 )
 
 func main() {

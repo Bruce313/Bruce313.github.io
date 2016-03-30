@@ -1,0 +1,19 @@
+{
+  "name": "Bruce313.github.io",
+  "homepage": "https://github.com/Bruce313/Bruce313.github.io",
+  "authors": [
+    "LiuBing <liubing@xiaohongchun.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "module",
+    "test",
+    "tests"
+  ]
+}
