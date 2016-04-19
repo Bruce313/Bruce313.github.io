@@ -10,7 +10,14 @@
 对读优化
 
 
-各种count/free/length冗余">
+各种count/free/length冗余
+
+
+不适合计算任务，比如key *, 作为缓存，适合快速读取
+
+
+单进程，非抢占式
+定时任务可能会有延迟">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis源码阅读">
 <meta property="og:url" content="http://yoursite.com/2016/04/18/redis源码阅读/index.html">
@@ -20,8 +27,15 @@
 对读优化
 
 
-各种count/free/length冗余">
-<meta property="og:updated_time" content="2016-04-18T05:49:21.115Z">
+各种count/free/length冗余
+
+
+不适合计算任务，比如key *, 作为缓存，适合快速读取
+
+
+单进程，非抢占式
+定时任务可能会有延迟">
+<meta property="og:updated_time" content="2016-04-18T06:23:18.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis源码阅读">
 <meta name="twitter:description" content="##arch
@@ -29,7 +43,14 @@
 对读优化
 
 
-各种count/free/length冗余">
+各种count/free/length冗余
+
+
+不适合计算任务，比如key *, 作为缓存，适合快速读取
+
+
+单进程，非抢占式
+定时任务可能会有延迟">
   
     <link rel="alternate" href="/atom.xml" title="L`Bat blog" type="application/atom+xml">
   
@@ -107,11 +128,18 @@
 <ol>
 <li>各种count/free/length冗余</li>
 </ol>
+<ul>
+<li>不适合计算任务，比如key *, 作为缓存，适合快速读取</li>
+</ul>
+<ol>
+<li>单进程，非抢占式</li>
+<li>定时任务可能会有延迟</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/18/redis源码阅读/" data-id="cin5ho55v00004clpjgw8trgw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/04/18/redis源码阅读/" data-id="cin766svv0004c1lpt5bcym49" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis-source/">redis; source</a></li></ul>
@@ -185,15 +213,23 @@
       <ul>
         
           <li>
+            <a href="/2016/04/19/regexp/">regexp</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/19/unit-test/">unit_test</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/18/job-log/">job\_log</a>
+          </li>
+        
+          <li>
+            <a href="/2016/04/18/想法/">想法</a>
+          </li>
+        
+          <li>
             <a href="/2016/04/18/c语言/">c语言</a>
-          </li>
-        
-          <li>
-            <a href="/2016/04/18/redis源码阅读/">redis源码阅读</a>
-          </li>
-        
-          <li>
-            <a href="/2016/04/18/hello-world/">Hello World</a>
           </li>
         
       </ul>
