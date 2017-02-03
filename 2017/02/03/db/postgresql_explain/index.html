@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>L`Bat blog</title>
+
+  
+  <meta name="author" content="Bruce313">
+  
+
+  
+  <meta name="description" content="postgresql explain 用法执行计划中代表的意思
+Scan method on table(cost=启动耗时..如果没有limit等 所有的行被读取消耗的时间 rows=会影响的行 width=所有行的平均宽度(bytes))   (actual time=准备时间…实际时间 row">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="L`Bat blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="L`Bat blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">L`Bat blog</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span></span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/02/03/db/postgresql_explain/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-03T03:03:59.000Z">
+          2017-02-03
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="postgresql-explain-用法"><a href="#postgresql-explain-用法" class="headerlink" title="postgresql explain 用法"></a>postgresql explain 用法</h1><h2 id="执行计划中代表的意思"><a href="#执行计划中代表的意思" class="headerlink" title="执行计划中代表的意思"></a>执行计划中代表的意思</h2><blockquote>
+<p><code>Scan method</code> on <code>table</code>(cost=<code>启动耗时</code>..<code>如果没有limit等 所有的行被读取消耗的时间</code> rows=<code>会影响的行</code> width=<code>所有行的平均宽度(bytes)</code>)<br>   (actual time=<code>准备时间</code>…<code>实际时间</code> rows=<code>实际查询时间</code> loops=<code>这个子查询被执行的次数</code>)</p>
+<p>输出是个树行结构 执行也是按照树的依赖来决定顺序和串并行</p>
+</blockquote>
+<h2 id="影响耗时的因素"><a href="#影响耗时的因素" class="headerlink" title="影响耗时的因素"></a>影响耗时的因素</h2><ol>
+<li>执行时间</li>
+<li>读取时间</li>
+<li>网络消耗</li>
+<li>分析语句时间（比如其中涉及的系统调用）</li>
+<li>大表和小表得到的执行计划会不同<blockquote>
+<p>影响比较大的是scan method &amp; join method</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="Scan-method"><a href="#Scan-method" class="headerlink" title="Scan method"></a>Scan method</h2><ol>
+<li>seq scan <blockquote>
+<p>没有办法或者认为这是最快的方式 比如行比较少</p>
+</blockquote>
+</li>
+<li>index scan<blockquote>
+<p>爬树(or hash) 找到位置 <code>立即</code>取数据(random access)</p>
+</blockquote>
+</li>
+<li>index only scan<blockquote>
+<p>同index scan但是不用<strong>random access</strong></p>
+</blockquote>
+</li>
+<li>bitmap [heap / index ] scan<blockquote>
+<p>同index scan 不过要中间有个bitmap的结构存储index scan的结果 然后读出符合条件的page 再<code>cond recheck</code></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="join-method"><a href="#join-method" class="headerlink" title="join method"></a>join method</h2><ol>
+<li>nested loop<blockquote>
+<p>有条件的一般作为外层表 有索引用index scan</p>
+</blockquote>
+</li>
+<li>hash join<blockquote>
+<p>把小表hash. scan大表再去小表中查找 hash一般都耗内存…</p>
+</blockquote>
+</li>
+<li>merge join<blockquote>
+<p>把两个表并行排序 然后遍历大表 查找对应的小表</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="影响planner的因素"><a href="#影响planner的因素" class="headerlink" title="影响planner的因素"></a>影响planner的因素</h2><ul>
+<li>pg_class的一些汇总信息 </li>
+</ul>
+<h2 id="具体的方法"><a href="#具体的方法" class="headerlink" title="具体的方法"></a>具体的方法</h2><ul>
+<li>小表join小表再join大表 而不是让planner自己决定顺序</li>
+<li>为了不让analyse不执行 可以包在begin commit中（改重要数据也是一样) </li>
+<li>尽量使用index only scan<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">index</span> <span class="keyword">on</span> <span class="keyword">id</span>;</div><div class="line"><span class="keyword">create</span> <span class="keyword">index</span> <span class="keyword">on</span> (a, b)</div><div class="line"><span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> tab <span class="keyword">where</span> a = <span class="number">1</span></div><div class="line"><span class="comment">-- 并不是index only scan</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
+<li>优化器选择执行计划是要靠统计信息的 所以在<strong>production</strong>环境分析执行才有意义</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Bruce313
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

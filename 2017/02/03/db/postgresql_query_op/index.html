@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>L`Bat blog</title>
+
+  
+  <meta name="author" content="Bruce313">
+  
+
+  
+  <meta name="description" content="pg 查询优化Index Only Scan
+pg的索引和数据分离
+根据索引查询数据后 未索引的列会random access的读数据区
+如果只读带有索引的列 就会快些
+select x from tab where y = 1 create index on (y, x)会触发index only">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="L`Bat blog"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="L`Bat blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">L`Bat blog</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span></span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/02/03/db/postgresql_query_op/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-03T03:03:59.000Z">
+          2017-02-03
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h1 id="pg-查询优化"><a href="#pg-查询优化" class="headerlink" title="pg 查询优化"></a>pg 查询优化</h1><h2 id="Index-Only-Scan"><a href="#Index-Only-Scan" class="headerlink" title="Index Only Scan"></a>Index Only Scan</h2><ul>
+<li>pg的索引和数据分离</li>
+<li>根据索引查询数据后 未索引的列会<code>random access</code>的读数据区</li>
+<li>如果只读带有索引的列 就会快些</li>
+<li><code>select x from tab where y = 1</code> create index on (y, x)会触发index only scan</li>
+</ul>
+<h2 id="确保索引使用"><a href="#确保索引使用" class="headerlink" title="确保索引使用"></a>确保索引使用</h2><ul>
+<li>使用真实数据测试</li>
+<li>analyze always</li>
+<li>强制使用索引 分析消耗</li>
+<li>汇总数据可能误导planner pg_class</li>
+</ul>
+<h2 id="方式"><a href="#方式" class="headerlink" title="方式 "></a>方式 </h2><ul>
+<li>用表达式创建索引 <code>create index on tab(func(col))</code></li>
+<li>创建view 对读做优化(额 其实建索引也是牺牲写性能)</li>
+<li>with大法有时会阻止优化器 所以试试子查询</li>
+<li>大多数时候<code>select a, b, c</code>要比<code>select *</code>要快</li>
+<li>prepared statement</li>
+<li>执行<code>cacuum analyze</code>更新统计信息 然后<code>create index</code>会更智能</li>
+<li>join要比subquery(select a, (select b from c) as c) 要对优化器友好</li>
+<li><code>inner join</code>要比<code>left join</code> 要对优化器友好</li>
+<li>避免pattern match把%放在前面<code>like &#39;%abc&#39;</code>, 不会使用索引</li>
+<li>使用<code>部分索引(partical index)</code>排除null等</li>
+<li>用<code>order by limit</code>代替<code>max min</code> 因为pg对aggr(尤其count)不友好</li>
+<li>使用汇总字段 用冗余对读优化</li>
+<li>使用冗余 把外表直接写入表 减少join</li>
+<li>使用limit影响join</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 Bruce313
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
