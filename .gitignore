@@ -7,3 +7,4 @@ public/
 .deploy*/
 *.swp
 md2html
+themes/
