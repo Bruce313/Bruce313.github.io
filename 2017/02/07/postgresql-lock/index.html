@@ -3,26 +3,34 @@
 <head>
   <meta charset="utf-8">
   
-  <title>L`Bat的博客</title>
+  <title>postgresql_lock | L`Bat的博客</title>
 
   
   <meta name="author" content="L`Bat">
   
 
   
-  <meta name="description" content="不要开启一个goroutine 除非你知道何时终止它">
+  <meta name="description" content="秒杀
+update tbl set a = a - 1 where a &amp;gt; 0
+
+有等待 没有获得锁的也要等待
+
+
+select * from tble where id = :id for share nowait
+
+同一个行做秒杀的话 只有一行 会有些本该秒到的没有秒到可以把每一个商品做成">
   
 
   
   
-  <meta name="keywords" content="">
+  <meta name="keywords" content="postgresql;db">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  
+  <meta property="og:title" content="postgresql_lock"/>
 
   <meta property="og:site_name" content="L`Bat的博客"/>
 
@@ -63,15 +71,15 @@
 
   
     
-    <h3 class="article-title"><span></span></h3>
+    <h3 class="article-title"><span>postgresql_lock</span></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2017/02/03/go/pattern/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-03T03:03:59.000Z">
-          2017-02-03
+      <a href="/2017/02/07/postgresql-lock/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-07T06:04:07.000Z">
+          2017-02-07
         </time>
       </a>
     </span>
@@ -83,9 +91,23 @@
   <div class="article-content">
     <div class="entry">
       
-        <ul>
-<li>不要开启一个goroutine 除非你知道何时终止它</li>
-</ul>
+        <h3 id="秒杀"><a href="#秒杀" class="headerlink" title="秒杀"></a>秒杀</h3><ol>
+<li><p><code>update tbl set a = a - 1 where a &gt; 0</code></p>
+<blockquote>
+<p>有等待 没有获得锁的也要等待</p>
+</blockquote>
+</li>
+<li><p><code>select * from tble where id = :id for share nowait</code></p>
+<blockquote>
+<p>同一个行做秒杀的话 只有一行 会有些本该秒到的没有秒到<br>可以把每一个商品做成一行</p>
+</blockquote>
+</li>
+<li><p><code>update tbl set a = a - 1 where id=:id and pg_try_advisory_xact_lock(:hash)</code> </p>
+<blockquote>
+<p>hash 可以是uid % number_of_goods</p>
+</blockquote>
+</li>
+</ol>
 
       
     </div>
@@ -97,6 +119,13 @@
 
     
 
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/postgresql-db/">postgresql;db</a>
+    </span>
     
 
     </div>

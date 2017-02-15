@@ -17,7 +17,6 @@ Index Only Scan
 方式 
 ---
 - 用表达式创建索引 `create index on tab(func(col))`
-- 创建view 对读做优化(额 其实建索引也是牺牲写性能)
 - with大法有时会阻止优化器 所以试试子查询
 - 大多数时候`select a, b, c`要比`select *`要快
 - prepared statement
@@ -29,4 +28,5 @@ Index Only Scan
 - 用`order by limit`代替`max min` 因为pg对aggr(尤其count)不友好
 - 使用汇总字段 用冗余对读优化
 - 使用冗余 把外表直接写入表 减少join
-- 使用limit影响join
+- 使用limit影响join, use amap
+- 避免`select * from a, b, c where a.id=b.id and a.name = c.name` 会产生很多plan 消耗时间

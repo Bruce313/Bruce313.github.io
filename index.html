@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   
-  <title>L`Bat blog</title>
+  <title>L`Bat的博客</title>
 
   
-  <meta name="author" content="Bruce313">
+  <meta name="author" content="L`Bat">
   
 
   
@@ -19,14 +19,14 @@
 
   
 
-  <meta property="og:site_name" content="L`Bat blog"/>
+  <meta property="og:site_name" content="L`Bat的博客"/>
 
   
   <meta property="og:image" content="/favicon.ico"/>
   
 
   <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="L`Bat blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="L`Bat的博客" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
 </head>
 
@@ -38,7 +38,7 @@
     <header>
   <div class="site-branding">
     <h1 class="site-title">
-      <a href="/">L`Bat blog</a>
+      <a href="/">L`Bat的博客</a>
     </h1>
     <p class="site-description"></p>
   </div>
@@ -55,6 +55,136 @@
 
     <main class="site-main posts-loop">
     
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/02/15/taolu/"><span>编程中的常见模式</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/02/15/taolu/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-15T00:31:24.000Z">
+          2017-02-15
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="状态机"><a href="#状态机" class="headerlink" title="状态机"></a>状态机</h2><h2 id="safe模式"><a href="#safe模式" class="headerlink" title="safe模式"></a><strong>safe</strong>模式</h2><p>最小化启动 逐步加入插件</p>
+<h2 id="debug日志模式"><a href="#debug日志模式" class="headerlink" title="debug日志模式"></a>debug日志模式</h2><p>用于定位问题</p>
+<h2 id="图片测试"><a href="#图片测试" class="headerlink" title="图片测试"></a>图片测试</h2>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/common/">common</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/pattern/">pattern</a><a href="/tags/program/">program</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/02/07/postgresql-lock/"><span>postgresql_lock</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/02/07/postgresql-lock/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-07T06:04:07.000Z">
+          2017-02-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="秒杀"><a href="#秒杀" class="headerlink" title="秒杀"></a>秒杀</h3><ol>
+<li><p><code>update tbl set a = a - 1 where a &gt; 0</code></p>
+<blockquote>
+<p>有等待 没有获得锁的也要等待</p>
+</blockquote>
+</li>
+<li><p><code>select * from tble where id = :id for share nowait</code></p>
+<blockquote>
+<p>同一个行做秒杀的话 只有一行 会有些本该秒到的没有秒到<br>可以把每一个商品做成一行</p>
+</blockquote>
+</li>
+<li><p><code>update tbl set a = a - 1 where id=:id and pg_try_advisory_xact_lock(:hash)</code> </p>
+<blockquote>
+<p>hash 可以是uid % number_of_goods</p>
+</blockquote>
+</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/postgresql-db/">postgresql;db</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
   <article>
 
   
@@ -332,103 +462,6 @@
 
   
     
-    <h3 class="article-title"><a href="/2017/02/03/go/pattern/"><span></span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/02/03/go/pattern/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-03T03:03:59.000Z">
-          2017-02-03
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <ul>
-<li>不要开启一个goroutine 除非你知道何时终止它</li>
-</ul>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/02/03/db/table_design/"><span></span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/02/03/db/table_design/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-02-03T03:03:59.000Z">
-          2017-02-03
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <ol>
-<li>增加汇总字段 各种count</li>
-<li>需要外联找到的字段 比如uid或者uname 写入常用这些字段的表 再限制uname的修改</li>
-</ol>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
     <h3 class="article-title"><a href="/2017/02/03/arch/distribute/"><span></span></a></h3>
     
   
@@ -580,7 +613,7 @@
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     </br>
     
-    &copy; 2017 Bruce313
+    &copy; 2017 L`Bat
     
   </p>
 </footer>

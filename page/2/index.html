@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Page 2 | L`Bat blog</title>
+  <title>Page 2 | L`Bat的博客</title>
 
   
-  <meta name="author" content="Bruce313">
+  <meta name="author" content="L`Bat">
   
 
   
@@ -19,14 +19,14 @@
 
   
 
-  <meta property="og:site_name" content="L`Bat blog"/>
+  <meta property="og:site_name" content="L`Bat的博客"/>
 
   
   <meta property="og:image" content="/favicon.ico"/>
   
 
   <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="L`Bat blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="L`Bat的博客" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
 </head>
 
@@ -38,7 +38,7 @@
     <header>
   <div class="site-branding">
     <h1 class="site-title">
-      <a href="/">L`Bat blog</a>
+      <a href="/">L`Bat的博客</a>
     </h1>
     <p class="site-description"></p>
   </div>
@@ -105,13 +105,13 @@
 
   
     
-    <h3 class="article-title"><a href="/2017/02/03/db/postgresql_query_op/"><span></span></a></h3>
+    <h3 class="article-title"><a href="/2017/02/03/go/pattern/"><span></span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2017/02/03/db/postgresql_query_op/" rel="bookmark">
+      <a href="/2017/02/03/go/pattern/" rel="bookmark">
         <time class="entry-date published" datetime="2017-02-03T03:03:59.000Z">
           2017-02-03
         </time>
@@ -125,33 +125,8 @@
   <div class="article-content">
     <div class="entry">
       
-        <h1 id="pg-查询优化"><a href="#pg-查询优化" class="headerlink" title="pg 查询优化"></a>pg 查询优化</h1><h2 id="Index-Only-Scan"><a href="#Index-Only-Scan" class="headerlink" title="Index Only Scan"></a>Index Only Scan</h2><ul>
-<li>pg的索引和数据分离</li>
-<li>根据索引查询数据后 未索引的列会<code>random access</code>的读数据区</li>
-<li>如果只读带有索引的列 就会快些</li>
-<li><code>select x from tab where y = 1</code> create index on (y, x)会触发index only scan</li>
-</ul>
-<h2 id="确保索引使用"><a href="#确保索引使用" class="headerlink" title="确保索引使用"></a>确保索引使用</h2><ul>
-<li>使用真实数据测试</li>
-<li>analyze always</li>
-<li>强制使用索引 分析消耗</li>
-<li>汇总数据可能误导planner pg_class</li>
-</ul>
-<h2 id="方式"><a href="#方式" class="headerlink" title="方式 "></a>方式 </h2><ul>
-<li>用表达式创建索引 <code>create index on tab(func(col))</code></li>
-<li>创建view 对读做优化(额 其实建索引也是牺牲写性能)</li>
-<li>with大法有时会阻止优化器 所以试试子查询</li>
-<li>大多数时候<code>select a, b, c</code>要比<code>select *</code>要快</li>
-<li>prepared statement</li>
-<li>执行<code>cacuum analyze</code>更新统计信息 然后<code>create index</code>会更智能</li>
-<li>join要比subquery(select a, (select b from c) as c) 要对优化器友好</li>
-<li><code>inner join</code>要比<code>left join</code> 要对优化器友好</li>
-<li>避免pattern match把%放在前面<code>like &#39;%abc&#39;</code>, 不会使用索引</li>
-<li>使用<code>部分索引(partical index)</code>排除null等</li>
-<li>用<code>order by limit</code>代替<code>max min</code> 因为pg对aggr(尤其count)不友好</li>
-<li>使用汇总字段 用冗余对读优化</li>
-<li>使用冗余 把外表直接写入表 减少join</li>
-<li>使用limit影响join</li>
+        <ul>
+<li>不要开启一个goroutine 除非你知道何时终止它</li>
 </ul>
 
       
@@ -380,15 +355,15 @@
 
   
     
-    <h3 class="article-title"><a href="/2016/12/28/hello-world/"><span>Hello World</span></a></h3>
+    <h3 class="article-title"><a href="/2017/02/03/db/postgresql_query_op/"><span></span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2016/12/28/hello-world/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-12-28T01:22:14.000Z">
-          2016-12-28
+      <a href="/2017/02/03/db/postgresql_query_op/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-03T03:03:59.000Z">
+          2017-02-03
         </time>
       </a>
     </span>
@@ -400,15 +375,84 @@
   <div class="article-content">
     <div class="entry">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h1 id="pg-查询优化"><a href="#pg-查询优化" class="headerlink" title="pg 查询优化"></a>pg 查询优化</h1><h2 id="Index-Only-Scan"><a href="#Index-Only-Scan" class="headerlink" title="Index Only Scan"></a>Index Only Scan</h2><ul>
+<li>pg的索引和数据分离</li>
+<li>根据索引查询数据后 未索引的列会<code>random access</code>的读数据区</li>
+<li>如果只读带有索引的列 就会快些</li>
+<li><code>select x from tab where y = 1</code> create index on (y, x)会触发index only scan</li>
+</ul>
+<h2 id="确保索引使用"><a href="#确保索引使用" class="headerlink" title="确保索引使用"></a>确保索引使用</h2><ul>
+<li>使用真实数据测试</li>
+<li>analyze always</li>
+<li>强制使用索引 分析消耗</li>
+<li>汇总数据可能误导planner pg_class</li>
+</ul>
+<h2 id="方式"><a href="#方式" class="headerlink" title="方式 "></a>方式 </h2><ul>
+<li>用表达式创建索引 <code>create index on tab(func(col))</code></li>
+<li>with大法有时会阻止优化器 所以试试子查询</li>
+<li>大多数时候<code>select a, b, c</code>要比<code>select *</code>要快</li>
+<li>prepared statement</li>
+<li>执行<code>cacuum analyze</code>更新统计信息 然后<code>create index</code>会更智能</li>
+<li>join要比subquery(select a, (select b from c) as c) 要对优化器友好</li>
+<li><code>inner join</code>要比<code>left join</code> 要对优化器友好</li>
+<li>避免pattern match把%放在前面<code>like &#39;%abc&#39;</code>, 不会使用索引</li>
+<li>使用<code>部分索引(partical index)</code>排除null等</li>
+<li>用<code>order by limit</code>代替<code>max min</code> 因为pg对aggr(尤其count)不友好</li>
+<li>使用汇总字段 用冗余对读优化</li>
+<li>使用冗余 把外表直接写入表 减少join</li>
+<li>使用limit影响join, use amap</li>
+<li>避免<code>select * from a, b, c where a.id=b.id and a.name = c.name</code> 会产生很多plan 消耗时间</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/02/03/db/table_design/"><span></span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/02/03/db/table_design/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-02-03T03:03:59.000Z">
+          2017-02-03
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <ol>
+<li>增加汇总字段 各种count</li>
+<li>需要外联找到的字段 比如uid或者uname 写入常用这些字段的表 再限制uname的修改</li>
+<li>unique来避免 exists(select from tbl)</li>
+</ol>
 
       
     </div>
@@ -578,54 +622,6 @@
 
 
 
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2016/04/18/想法/"><span>想法</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/04/18/想法/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-04-18T06:45:54.000Z">
-          2016-04-18
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="努力"><a href="#努力" class="headerlink" title="努力"></a>努力</h2><ol>
-<li>努力是你相信</li>
-</ol>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
 
 <nav class="pagination">
   
@@ -643,7 +639,7 @@
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     </br>
     
-    &copy; 2017 Bruce313
+    &copy; 2017 L`Bat
     
   </p>
 </footer>

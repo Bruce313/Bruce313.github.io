@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   
-  <title>L`Bat blog</title>
+  <title>L`Bat的博客</title>
 
   
-  <meta name="author" content="Bruce313">
+  <meta name="author" content="L`Bat">
   
 
   
@@ -28,14 +28,14 @@ select x from tab where y = 1 create index on (y, x)会触发index only">
 
   
 
-  <meta property="og:site_name" content="L`Bat blog"/>
+  <meta property="og:site_name" content="L`Bat的博客"/>
 
   
   <meta property="og:image" content="/favicon.ico"/>
   
 
   <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="L`Bat blog" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="L`Bat的博客" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
 </head>
 
@@ -47,7 +47,7 @@ select x from tab where y = 1 create index on (y, x)会触发index only">
     <header>
   <div class="site-branding">
     <h1 class="site-title">
-      <a href="/">L`Bat blog</a>
+      <a href="/">L`Bat的博客</a>
     </h1>
     <p class="site-description"></p>
   </div>
@@ -101,7 +101,6 @@ select x from tab where y = 1 create index on (y, x)会触发index only">
 </ul>
 <h2 id="方式"><a href="#方式" class="headerlink" title="方式 "></a>方式 </h2><ul>
 <li>用表达式创建索引 <code>create index on tab(func(col))</code></li>
-<li>创建view 对读做优化(额 其实建索引也是牺牲写性能)</li>
 <li>with大法有时会阻止优化器 所以试试子查询</li>
 <li>大多数时候<code>select a, b, c</code>要比<code>select *</code>要快</li>
 <li>prepared statement</li>
@@ -113,7 +112,8 @@ select x from tab where y = 1 create index on (y, x)会触发index only">
 <li>用<code>order by limit</code>代替<code>max min</code> 因为pg对aggr(尤其count)不友好</li>
 <li>使用汇总字段 用冗余对读优化</li>
 <li>使用冗余 把外表直接写入表 减少join</li>
-<li>使用limit影响join</li>
+<li>使用limit影响join, use amap</li>
+<li>避免<code>select * from a, b, c where a.id=b.id and a.name = c.name</code> 会产生很多plan 消耗时间</li>
 </ul>
 
       
@@ -143,7 +143,7 @@ select x from tab where y = 1 create index on (y, x)会触发index only">
     Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
     </br>
     
-    &copy; 2017 Bruce313
+    &copy; 2017 L`Bat
     
   </p>
 </footer>
