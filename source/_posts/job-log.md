@@ -7,3 +7,4 @@ tags:
 ---
 - linux
 *ENOSPEC* no space空间不足(/tmp比如)
+
