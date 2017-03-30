@@ -1,12 +1,13 @@
 ---
 title: 编程中的常见模式
-date: 2017-02-15 08:31:24
-tags: 
-- pattern
-- program
+tags:
+  - pattern
+  - program
 categories:
-- common
+  - common
+date: 2017-02-15 08:31:24
 ---
+
 
 状态机
 ---
