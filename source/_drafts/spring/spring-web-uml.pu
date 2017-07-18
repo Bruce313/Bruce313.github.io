@@ -1,0 +1,37 @@
+@startuml
+interface HttpMessage 
+interface HttpRequestMessage
+interface HttpResponseMessage
+HttpMessage <|-- HttpRequestMessage
+HttpMessage <|-- HttpResponseMessage
+
+interface HttpMessageConverter<T> {
+	+ boolean canRead();
+	+ boolean canWrite();
+	+ T read();
+	+ void write(T);
+}
+
+interface HttpMessageReader <<codec>>
+interface HttpMessageWriter <<codec>>
+
+interface ClientHttpRequestInterceptor <<修改ClientRequest>>
+interface ClientHttpRequestMessage {
+	+ void execute();
+}
+
+HttpRequestMessage <|-- ClientHttpRequestMessage
+
+class RestTemplate
+
+
+ClientHttpRequestInterceptor *-- RestTemplate
+ClientHttpRequestMessage *-- RestTemplate
+
+class RestTemplate <<ClientRequest Builder>>
+
+interface WebApplicationInitializer <<初始化ServletContext SPI>>
+
+interface DataBinder <<解析&绑定&validate数据>>
+
+@enduml

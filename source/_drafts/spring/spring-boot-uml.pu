@@ -1,0 +1,34 @@
+@startuml
+class AnnotationConfigEmbeddedWebApplicationContext {
+	- AnnotatedBeanDefinitionReader
+	- ClassPathBeanDefinitionScanner
+	+ scan()
+	+ refresh()
+}
+
+class CompositePropertySource
+class PropertySource<T> <<配置文件>>
+interface PropertySourceLocator {
+	+ PropertySource locate();
+}
+
+PropertySource *-- PropertySourceLocator
+
+note top of PropertySource
+具有加载Properties的功能
+properties file, yaml, 
+config server etc.
+end note
+
+PropertySource *-- CompositePropertySource
+
+class BeanDefinitionRegistryPostProcessor
+note top of ConfigurationClassPostProcessor
+把java代码实现的bean
+注入到context
+end note
+class ConfigurationClassPostProcessor
+class BeanFactoryPostProcessor
+BeanFactoryPostProcessor <|-- BeanDefinitionRegistryPostProcessor
+BeanDefinitionRegistryPostProcessor <|-- ConfigurationClassPostProcessor
+@enduml

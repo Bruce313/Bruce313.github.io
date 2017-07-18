@@ -21,3 +21,9 @@ ClassLoader.getResourceAsStream("/path/to/xml")
 final int foo = 1;
 ```
 
+
+规范
+--
+1. servlet
+2. spi
+

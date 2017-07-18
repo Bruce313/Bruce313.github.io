@@ -1,0 +1,81 @@
+@startuml
+package "spring boot" {
+	class SpringApplication {
+		+ {static} ConfigurableApplicationContext run(Object[] source)
+	}
+
+	class ApplicationContextInitializer {
+		+ void initialize
+	}
+
+	class ApplicationListener {
+		+ void onApplicationEvent(ApplicationEvent e)
+	}
+	class ConfigurableWebApplicationContext {
+
+	}
+
+	class GenericWebApplicationContext {
+	}
+	hide GenericWebApplicationContext methods
+	hide GenericWebApplicationContext members
+
+	interface ConfigurableEnvironment {
+
+	}
+
+	class EmbeddedWebApplicationContext {
+		- embeddedServletContainer	
+	}
+
+	class AnnotationConfigEmbeddedWebApplicationContext {
+
+	}
+
+	class EmbeddedServletContainer
+
+	interface ServletContext
+}
+
+'package "spring content & spring bean" {
+
+	interface ApplicationContext {
+		.. private method ..
+		- void finishBeanFactoryInitialization(ConfigurableListableBeanFactory)
+		.. public method ..
+		+ void refresh()
+	}
+
+
+	interface ConfigurableListableBeanFactory {
+		+ void preInstantiateSingletons() : 加载单例且不懒加载的Bean
+	}
+	note right of ConfigurableListableBeanFactory : <color: #008822>自动加载Bean的位置</color>
+	' <img:./preinsta.png/> note支持图片
+
+'}
+
+
+
+
+
+
+
+
+SpringApplication *-- ApplicationContextInitializer
+SpringApplication *-- ApplicationListener
+
+EmbeddedWebApplicationContext <|-- AnnotationConfigEmbeddedWebApplicationContext
+GenericWebApplicationContext <|-- EmbeddedWebApplicationContext
+ConfigurableWebApplicationContext <|-- GenericWebApplicationContext
+ApplicationContext <|.. ConfigurableWebApplicationContext
+
+ApplicationContext *-- ConfigurableListableBeanFactory
+
+GenericWebApplicationContext "私有" *-- ServletContext : 给container用 >
+
+ConfigurableWebApplicationContext *-- ConfigurableEnvironment
+
+EmbeddedWebApplicationContext *-- EmbeddedServletContainer
+
+@endurml

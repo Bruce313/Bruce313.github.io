@@ -1,0 +1,193 @@
+@startuml
+class FeatureDescriptor <<成员描述器>> {
+	- HashTable table
+	+ void setValue() <b>custom化的描述存储</b>
+	+ Object getValue()
+}
+
+class PropertyDescriptor <<getter setter的描述器>> {
+	- Class<?> propertyEditorClassRef
+	+ PropertyEditor createPropertyEditor(Object bean)
+}
+
+interface TypeConverter <<转换类型>> {
+	+ convertIfNecessary(Object, Class<T>)
+}
+
+interface PropertyEditorRegistry <<给属性注册Editor>> {
+	+ registerCustomEditor(Class<?>, PropertyEditor)
+	+ findCustomEditor(Class<?>, String propPath)
+}
+
+
+interface PropertyAccessor <<操作属性>> {
+	+ setPropertyValue(PropertyValue)
+	+ getPropertyValue()
+	+ isWritableProperty()
+}
+
+
+interface ConfigurablePropertyAccessor <<是集成三个接口的功能可配置>> {
+
+}
+
+interface BeanWrapper <<操作Bean 获得PropertyDescriptor>> {
+	+ getWrappedInstance()
+	+ getWrappedClass()
+	+ getPropertyDescriptor()
+}
+
+class PropertyEditorRegistrySupport <<PropertyEditorRegistry内置实现(support)>> {
+}
+
+class BeanWrapperImpl <<BeanWrapper内置实现>> {
+
+}
+
+abstract class AbstractPropertyAccessor <<属性操作器的实现起点>>
+abstract class AbstractNestablePropertyAccessor <<可级联的属性操作器>> {
+	- wrappedObject
+	- nestedPath
+	- rootObject
+}
+
+class Bean <<bean框架并没bean 是Object>>
+
+class BeanDescriptor
+class MethodDescriptor
+class EventDescriptor
+
+class BeanInfo
+
+class DirectFieldAccessor
+
+class PropertyEditorRegistrar
+
+interface AttributeAccessor
+
+class PropertyValue
+
+Bean *-- PropertyValue
+BeanWrapper *-- PropertyValue
+AbstractNestablePropertyAccessor *-- PropertyValue
+
+
+AttributeAccessor <|.. PropertyValue
+
+PropertyEditorRegistry *-- PropertyEditorRegistrar : 注册PE的策略
+
+AbstractNestablePropertyAccessor <|-- DirectFieldAccessor
+
+FeatureDescriptor <|-- BeanDescriptor
+FeatureDescriptor <|-- EventDescriptor
+FeatureDescriptor <|-- MethodDescriptor
+
+
+BeanInfo *-- BeanDescriptor
+BeanInfo *-- PropertyDescriptor
+BeanInfo *-- MethodDescriptor
+
+BeanWrapper *-- PropertyDescriptor
+
+AbstractPropertyAccessor *-- Bean
+BeanWrapper *-- Bean
+AbstractNestablePropertyAccessor <|-- BeanWrapperImpl
+ConfigurablePropertyAccessor <|.. AbstractPropertyAccessor : 虚拟类分支 >
+AbstractPropertyAccessor <|-- AbstractNestablePropertyAccessor
+BeanWrapper <|.. BeanWrapperImpl
+PropertyEditorRegistry <|.. PropertyEditorRegistrySupport
+PropertyAccessor <|-- ConfigurablePropertyAccessor
+TypeConverter <|-- ConfigurablePropertyAccessor
+PropertyEditorRegistry <|-- ConfigurablePropertyAccessor
+ConfigurablePropertyAccessor <|-- BeanWrapper : 接口分支 >
+
+FeatureDescriptor <|-- PropertyDescriptor
+
+@enduml
+
+@startuml
+
+
+interface BeanFactory {
+	+ <T> T getBean(Class<T>)
+	+ Object getBean(String)
+	+ containBean()
+}
+
+interface FactoryBean<T> {
+	+ T getObject()
+	+ Class<?> getObjectType()
+}
+
+class FieldRetrievingFactoryBean 
+
+FactoryBean <|.. FieldRetrievingFactoryBean
+
+BeanFactory *-- FactoryBean
+
+interface HierarchicalBeanFactory {
+	+ getParentBeanFactory()
+	+ containsLocalBean()
+}
+
+interface ConfigurableBeanFactory {
+
+}
+
+interface ListableBeanFactory
+
+note top of ListableBeanFactory
+可以通过<b>注解/Type</b>来拿到Bean的集合
+end note
+
+interface BeanPostProcessor <<bean创建后置处理器>>
+
+BeanPostProcessor *-- BeanFactory
+
+HierarchicalBeanFactory <|-- ConfigurableBeanFactory
+BeanFactory <|-- HierarchicalBeanFactory
+BeanFactory <|-- ListableBeanFactory
+
+class AbstractFactoryBean<T>
+
+FactoryBean *-- AbstractFactoryBean
+
+class BeanFactoryPostProcessor 
+note top of BeanFactoryPostProcessor
+ 允许用户在
+ BeanFactory
+ 实例化后操作Factory
+end note
+
+AbstractFactoryBean <|-- ListFactoryBean
+AbstractFactoryBean <|-- MapFactoryBean
+FactoryBean <|-- PropertiesFactoryBean
+
+class PropertiesFactoryBean <<通过properties文件>>
+
+interface AutowireCapableBeanFactory <<自动组装和构建Bean>>
+
+BeanFactory <|-- AutowireCapableBeanFactory 
+
+@enduml
+
+@startuml
+abstract class AbstractAutowireCapableBeanFactory <<AutowireBeanFactory核心实现>>
+class DefaultListableBeanFactory
+AbstractAutowireCapableBeanFactory <|-- DefaultListableBeanFactory
+@enduml
+
+@startuml
+class BeanFactory
+
+class BeanDefition
+
+class BeanPostProcessor
+
+class PropertyEditor
+
+BeanFactory *-- BeanDefition: 用来描述bean元信息 >
+BeanFactory *-- BeanPostProcessor: 创建bean前后调用 >
+BeanFactory *-- PropertyEditor: 修改bean属性 >
+@enduml
+

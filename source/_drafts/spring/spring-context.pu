@@ -1,0 +1,20 @@
+@startuml
+interface ApplicationContext <<核心接口>> {
+	+ getParent()
+	+ getAutowireCapableBeanFactory()
+}
+
+class ClassPathBeanDefinitionScanner 
+note top of ClassPathBeanDefinitionScanner
+扫描注解标识的Component
+end note
+
+interface Aware <<有..意识>>
+note top of Aware 
+EnvironmentAware代表可以setEnvironment
+end note
+
+ClassPathBeanDefinitionScanner *-- ApplicationContext
+
+
+@enduml

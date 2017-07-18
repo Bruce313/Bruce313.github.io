@@ -1,0 +1,12 @@
+@startuml
+:扫描spring.factories;
+:注册Initializers;
+if(classpath中是否有Initialize的子类?) then (有)
+	:被DelegateInitializer引用并执行;
+endif
+:注册Listeners;
+if(classpath中是否有Listener的子类?) then (有)
+	:被DelegateListener引用并执行;
+endif
+
+@enduml

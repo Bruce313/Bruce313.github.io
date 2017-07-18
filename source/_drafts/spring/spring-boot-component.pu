@@ -1,0 +1,10 @@
+@startuml
+component "SpringBoot" as sb {
+	
+}
+component "SpringContext" as sctx {
+	component "ServeletContainer"	
+}
+
+
+@enduml

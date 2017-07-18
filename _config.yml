@@ -4,7 +4,7 @@
 
 # Site
 title: L`Bat的博客
-subtitle:
+subtitle: 为者常成 行者常至
 description:
 author: L`Bat
 language: zh
@@ -29,7 +29,7 @@ skip_render:
 
 # Writing
 new_post_name: :title.md # File name of new posts
-default_layout: draft
+default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
