@@ -34,7 +34,7 @@ category:
 	- 在Mapping中获得匹配的(`Interceptor.matches`)来加入Chain
 8. 分配请求到`HandlerExecutionChain`
 	- 调用`HandlerInterceptor.preHandle`, 一次调用，有false结束
-	- 调用`HandlerInterceptor.handle`, 获得ModelAndView; [handle内部](/java/spring/webmvc/handler)
+	- 调用`HandlerInterceptor.handle`, 获得MoSimpleControllerHandlerAdapterdelAndView; [handle内部](/java/spring/webmvc/handlerSimpleControllerHandlerAdapter)
 	- 调用`HandlerInterceptor.postHandle`
 > 常用实现 `SimpleControllerHandlerAdapter`
 > 每个Handler的实现自己提供**Adapter**, 因为handler是个object
