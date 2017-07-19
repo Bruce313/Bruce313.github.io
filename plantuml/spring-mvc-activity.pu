@@ -1,0 +1,13 @@
+@startuml
+:doPost/doPost;
+if(multipart?) then(yes)
+:multipartResovler;
+endif
+:HanlderMapping.getHandler -> HandlerExcetionChian;
+:handle 302;
+:preHandle;
+:handle;
+:postHandle;
+:clean;
+
+@enduml
