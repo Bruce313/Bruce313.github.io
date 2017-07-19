@@ -9,6 +9,13 @@ category:
 - spring
 - webmvc
 ---
+
+![spring框架](http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuOekBYZAp4jNIChFBubLI2nM27RYIixFBSZFIyqhKO39vfObWoM1j8AoUr5gQXvNNdv9ga9EQbg9GduQM9phnVwPpzOiVB6iySNwBSzdjN2bvgKeW5GXx4XDp2i6cmDcmSNBKvF0ea0QBfQSdrUIMW5nKd991LUmauAkhXs8QQNmihNt-TvrN21BuM9Fzkv_FcK55nUG0nO4ss2byBIdzUc4rN2bG1ki55viQ0OfTG2w3nW20000 "spring-all-comp@1-15")
+
+![mvc处理流程图](http://www.plantuml.com/plantuml/png/FOxD2i8m48IlPPyYn_RW3tfBG0iYU174DmZDjWsaIKYsec_lrafEk_lDB3Dj9fredXn84nuXqsuT2cnVJxCZ6ra_Du96zFK7SmEoAlo9ERmS9WNeZUr1thHt1jDTnsZzK6q794Q6BM9p4l_r-kwGRF2NqMglG8u_B8xx0nynuMehmWAvKQ6Tm-KDMixauby0 "spring-mvc-activity@1-13")
+
+
+
 > 介绍servlet
 > 实际上是遵循了[servlet](/java/servlet/)规范
 

@@ -3,21 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>L`Bat的博客 | 为者常成 行者常至</title>
+  <title>spring bean 代码 | L`Bat的博客 | 为者常成 行者常至</title>
 
   
   <meta name="author" content="L`Bat">
   
 
   
+  <meta name="description" content="123456789PropertyDescriptor(PropertyDescriptor x, PropertyDescriptor y) &amp;#123;	super(x,y);	if (y.baseName != null) &amp;#123;		baseName = y.baseName;	&amp;#12">
+  
 
+  
+  
+  <meta name="keywords" content="spring,源码">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  
+  <meta property="og:title" content="spring bean 代码"/>
 
   <meta property="og:site_name" content="L`Bat的博客"/>
 
@@ -58,337 +63,11 @@
 </header>
 
     <main class="site-main posts-loop">
-    
-  <article>
+    <article>
 
   
     
-    <h3 class="article-title"><a href="/java/java-exception"><span>java-exception</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/java/java-exception" rel="bookmark">
-        <time class="entry-date published" datetime="2017-07-19T03:19:43.000Z">
-          2017-07-19
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>使用cause创建<br>递归<code>getCause</code>找产生错误的根源</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/java/">java</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/基础/">基础</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/java/spring/webmvc/spring-flashmap"><span>spring-flashmap</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/java/spring/webmvc/spring-flashmap" rel="bookmark">
-        <time class="entry-date published" datetime="2017-07-18T10:07:03.000Z">
-          2017-07-18
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/java/">java</a>, <a href="/categories/java/spring/">spring</a>, <a href="/categories/java/spring/webmvc/">webmvc</a>
-    </span>
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/java/spring/webmvc/spring-webmvc-bootstrap"><span>spring mvc处理http请求的过程</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/java/spring/webmvc/spring-webmvc-bootstrap" rel="bookmark">
-        <time class="entry-date published" datetime="2017-07-18T09:49:29.000Z">
-          2017-07-18
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <blockquote>
-<p>介绍servlet<br>实际上是遵循了<a href="/java/servlet/">servlet</a>规范</p>
-</blockquote>
-<ol>
-<li>doPost / doGet 调用<code>DispatcherServlet.doService</code></li>
-<li>request可以存取attribute, 存储原有attrs</li>
-<li>设置常用attrs<ul>
-<li>context</li>
-<li>localeResolver <strong>修改点</strong></li>
-<li>themeResolver <strong>修改点</strong></li>
-<li>处理并设置<code>FlashMap</code>(<a href="/java/spring/webmvc/spring-flashmap/">FlashMap</a>是不同请求间共享数据的方式)</li>
-</ul>
-</li>
-<li><p>处理multipart </p>
-<ul>
-<li>使用<strong>multipartResovler</strong>处理</li>
-<li>如果错误写入错误到attrs(attrs是<strong>MultiValueMap</strong>)</li>
-</ul>
-</li>
-<li><p>在<code>List&lt;HandlerMapping&gt;</code>中找第一个<code>HandlerExecutionChain</code> <strong>修改点</strong></p>
-</li>
-<li>如果是Get请求, 处理302<ul>
-<li>ETag</li>
-<li>lastModified</li>
-<li>设置302</li>
-<li>写回<code>Last-Modified</code></li>
-</ul>
-</li>
-<li>请求<code>SimpleUrlHandlerMapping</code>(<strong>求改点</strong>)得到<code>HandlerExcutionChain</code><ul>
-<li>如果是handler是String，那么去context里拿到Bean作为handler</li>
-<li>在Mapping中获得匹配的(<code>Interceptor.matches</code>)来加入Chain</li>
-</ul>
-</li>
-<li>分配请求到<code>HandlerExecutionChain</code><ul>
-<li>调用<code>HandlerInterceptor.preHandle</code>, 一次调用，有false结束</li>
-<li>调用<code>HandlerInterceptor.handle</code>, 获得MoSimpleControllerHandlerAdapterdelAndView; <a href="/java/spring/webmvc/handlerSimpleControllerHandlerAdapter">handle内部</a></li>
-<li>调用<code>HandlerInterceptor.postHandle</code><blockquote>
-<p>常用实现 <code>SimpleControllerHandlerAdapter</code><br>每个Handler的实现自己提供<strong>Adapter</strong>, 因为handler是个object</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ol>
-<ol>
-<li>如果发生<code>Exception | Throwable</code>，调用<code>preHandle</code>已经返回true的<code>Interceptor.triggerAfterCompletion</code> <strong>修改点</strong></li>
-<li>清理multipart <strong>修改点</strong></li>
-</ol>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
-<li><a href="/java/spring/webmvc/async">异步处理</a></li>
-</ul>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-      
-
-    <span class="post-categories">
-      <i class="icon-categories"></i>
-        <a href="/categories/java/">java</a>, <a href="/categories/java/spring/">spring</a>, <a href="/categories/java/spring/webmvc/">webmvc</a>
-    </span>
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/spring/">spring</a><a href="/tags/source/">source</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/uncategorized/links"><span>links</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/uncategorized/links" rel="bookmark">
-        <time class="entry-date published" datetime="2017-07-18T05:46:36.000Z">
-          2017-07-18
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="google"><a href="#google" class="headerlink" title="google"></a>google</h2>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/me/">me</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/uncategorized/aboutme"><span>aboutme</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/uncategorized/aboutme" rel="bookmark">
-        <time class="entry-date published" datetime="2017-07-18T04:34:13.000Z">
-          2017-07-18
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="哈哈哈"><a href="#哈哈哈" class="headerlink" title="哈哈哈"></a>哈哈哈</h2>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/me/">me</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/uncategorized/spring-beans-code"><span>spring bean 代码</span></a></h3>
+    <h3 class="article-title"><span>spring bean 代码</span></h3>
     
   
 
@@ -477,12 +156,6 @@
 </article>
 
 
-
-
-<nav class="pagination">
-  
-  
-</nav>
     </main>
 
     <footer class="site-footer">
