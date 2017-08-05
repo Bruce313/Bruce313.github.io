@@ -12,4 +12,8 @@ mvc --> ctx: 使用
 
 ctx --> beans: 包含
 mvc --> web: 调用
-@enduml
+
+component [servlet context] as sc 
+component [request dispacher] as rd
+
+@enduml

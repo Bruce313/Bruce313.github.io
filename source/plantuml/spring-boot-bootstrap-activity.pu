@@ -1,0 +1,9 @@
+@startuml
+:启动;
+:构建context(EmbeddedWebApplicationContext);
+:BeanDefinion;
+:加载ClassConfiguration的Bean;
+:处理 请求;
+:用name拿到ControllerBean;
+:Controller.handleRequest();
+@enduml
