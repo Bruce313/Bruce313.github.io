@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>testable_code | L`Bat的博客 | 为者常成 行者常至</title>
+
+  
+  <meta name="author" content="L`Bat">
+  
+
+  
+  <meta name="description" content="概念
+集成测试对用户的交互行为感兴趣，而单元测试往往仅专注于一小段代码
+软件IC是人们在讨论可复用性和基于组件的开发时最喜欢使用的比喻。意思是软件组件应该就像集成电路一样进行组合，这只有在你使用的组件已知是可靠地时候才能行之有效。　　芯片在设计时就考虑了测试——不只是在工厂，在安装时，而且也是在部署">
+  
+
+  
+  
+  <meta name="keywords" content="unit test">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="testable_code"/>
+
+  <meta property="og:site_name" content="L`Bat的博客"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="L`Bat的博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">L`Bat的博客</a>
+    </h1>
+    <p class="site-description">为者常成 行者常至</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/2017/07/18/links">链接</a></li>
+      
+        <li><a href="/2017/07/18/aboutme">关于我</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>testable_code</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/08/05/ut/testable/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-05T09:37:45.000Z">
+          2017-08-05
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>集成测试对用户的交互行为感兴趣，而单元测试往往仅专注于一小段代码</p>
+<p>软件IC是人们在讨论可复用性和基于组件的开发时最喜欢使用的比喻。意思是软件组件应该就像集成电路一样进行组合，这只有在你使用的组件已知是可靠地时候才能行之有效。<br>　　芯片在设计时就考虑了测试——不只是在工厂，在安装时，而且也是在部署现场进行测试。更加复杂的芯片和系统可能还拥有完整的Built-In-SelfTest（BIST）特性，用于在内部运行某种基础级的诊断；或是拥有Test Access Mechanism（TAM），用以提供一种测试装备，允许外部环境提供激励，并收集来自芯片的响应。</p>
+</blockquote>
+<h2 id="untestable的代码"><a href="#untestable的代码" class="headerlink" title="untestable的代码"></a>untestable的代码</h2><ul>
+<li>隐藏的输入</li>
+<li>依赖过多，构建麻烦</li>
+<li>耦合度过高</li>
+<li>非单一职责</li>
+<li>显式的依赖DB NETWORK 未测试的类等(应该依赖接口或者mock)</li>
+</ul>
+<h2 id="验收标准"><a href="#验收标准" class="headerlink" title="验收标准"></a>验收标准</h2><ul>
+<li>覆盖率高(路径被遍历)</li>
+<li>圈复杂度低</li>
+<li>每个输入有唯一的输出</li>
+<li>过去的系统状态和变量可见，或在运行中可查询(例如：事务日志)</li>
+<li>软件的可测试性特征主要表现是设立观察点、控制点、观察装置、驱动装置、隔离装置</li>
+</ul>
+<h2 id="pricinple"><a href="#pricinple" class="headerlink" title="pricinple"></a>pricinple</h2><ul>
+<li>设计之初就考虑了<code>测试模式</code></li>
+<li>承认单元测试不是万能的，只保证部分正确</li>
+<li>尽量少的依赖<blockquote>
+<p>First rule of writing testable code to me is having a good dependency management within the code base, or at least having the least possible dependencies in your object/module relations</p>
+</blockquote>
+</li>
+<li><p>执行路径过多(每个执行路径是不同的代码，都该有个测试与之对应)</p>
+<blockquote>
+<p>应该由单个方法来决定if的条件<br>嵌套的panduan<br>== null<br>> 2</p>
+</blockquote>
+</li>
+<li><p>可控性指系统的状态可受外部控制改变，而不是由内部模块自发的完成</p>
+<blockquote>
+<p>测试环境不可以等待每天晚上1点这个时刻</p>
+</blockquote>
+</li>
+<li>可观测性<blockquote>
+<p>再次，没有必要的描述如何判断哪些文件/数据被GC掉了。无法观测到执行结果集带来的后果是无法精确的预期测试结果。</p>
+</blockquote>
+</li>
+<li>参数的热设定</li>
+<li>系统使用信息统计</li>
+</ul>
+<h2 id="NOT-testable"><a href="#NOT-testable" class="headerlink" title="NOT testable"></a>NOT testable</h2><ol>
+<li>包含不确定的因素<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> string <span class="title">GetTimeOfDay</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    DateTime time = DateTime.Now;</div><div class="line">    <span class="keyword">if</span> (time.Hour &gt;= <span class="number">0</span> &amp;&amp; time.Hour &lt; <span class="number">6</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Night"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (time.Hour &gt;= <span class="number">6</span> &amp;&amp; time.Hour &lt; <span class="number">12</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Morning"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (time.Hour &gt;= <span class="number">12</span> &amp;&amp; time.Hour &lt; <span class="number">18</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Afternoon"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Evening"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>依赖了系统时间</li>
+<li>隐藏了输入（依赖）</li>
+<li>相同测试不同输出</li>
+</ul>
+<h2 id="测什么"><a href="#测什么" class="headerlink" title="测什么"></a>测什么</h2><blockquote>
+<p>CORRECT</p>
+</blockquote>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ol>
+<li>完全的TDD</li>
+<li>实现-&gt; 测试 -&gt; 重构以更testable -&gt; 更多测试 -&gt; 重构测试</li>
+</ol>
+<h2 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h2><ul>
+<li>监视圈复杂度</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/unit-test/">unit test</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 L`Bat
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Page 2 | L`Bat的博客 | 为者常成 行者常至</title>
+
+  
+  <meta name="author" content="L`Bat">
+  
+
+  
+
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="L`Bat的博客"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="L`Bat的博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">L`Bat的博客</a>
+    </h1>
+    <p class="site-description">为者常成 行者常至</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/2017/07/18/links">链接</a></li>
+      
+        <li><a href="/2017/07/18/aboutme">关于我</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/07/18/links/"><span>links</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/18/links/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-18T05:46:36.000Z">
+          2017-07-18
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="google"><a href="#google" class="headerlink" title="google"></a>google</h2>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/me/">me</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/07/18/aboutme/"><span>aboutme</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/18/aboutme/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-18T04:34:13.000Z">
+          2017-07-18
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="哈哈哈"><a href="#哈哈哈" class="headerlink" title="哈哈哈"></a>哈哈哈</h2>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/me/">me</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/07/18/spring-beans-code/"><span>spring bean 代码</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/18/spring-beans-code/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-18T03:19:33.000Z">
+          2017-07-18
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">PropertyDescriptor(PropertyDescriptor x, PropertyDescriptor y) &#123;</div><div class="line">	<span class="keyword">super</span>(x,y);</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (y.baseName != <span class="keyword">null</span>) &#123;</div><div class="line">		baseName = y.baseName;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		baseName = x.baseName;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>以<strong>同类对象</strong>作为参数的构造函数</li>
+<li>Constructor不一定public</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PropertyDescriptor</span> <span class="keyword">extends</span> <span class="title">FeatureDescriptor</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Reference&lt;? extends Class&lt;?&gt;&gt; propertyTypeRef;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>Reference是对原对象的引用 </li>
+<li>虚拟类可以集成具体类</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Assert.isTrue(!(result <span class="keyword">instanceof</span> Optional), <span class="string">"Multi-level Optional usage not supported"</span>);</div></pre></td></tr></table></figure>
+<ol>
+<li>底层需要<strong>断言编程</strong></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">instantiateClass</span><span class="params">(Class&lt;T&gt; clazz)</span> <span class="keyword">throws</span> BeanInstantiationException </span>&#123;</div><div class="line">		Assert.notNull(clazz, <span class="string">"Class must not be null"</span>);</div><div class="line">		<span class="keyword">if</span> (clazz.isInterface()) &#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> BeanInstantiationException(clazz, <span class="string">"Specified class is an interface"</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="keyword">return</span> instantiateClass(clazz.getDeclaredConstructor());</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">catch</span> (NoSuchMethodException ex) &#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> BeanInstantiationException(clazz, <span class="string">"No default constructor found"</span>, ex);</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>将类似于断言和抛出错误的代码放入utils</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">	<span class="function"><span class="keyword">public</span> PropertyEditor <span class="title">getDefaultEditor</span><span class="params">(Class&lt;?&gt; requiredType)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (!<span class="keyword">this</span>.defaultEditorsActive) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (<span class="keyword">this</span>.overriddenDefaultEditors != <span class="keyword">null</span>) &#123;</div><div class="line">		PropertyEditor editor = <span class="keyword">this</span>.overriddenDefaultEditors.get(requiredType);</div><div class="line">		<span class="keyword">if</span> (editor != <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span> editor;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (<span class="keyword">this</span>.defaultEditors == <span class="keyword">null</span>) &#123;</div><div class="line">		createDefaultEditors();</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.defaultEditors.get(requiredType);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * Actually register the default editors for this registry instance.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">createDefaultEditors</span><span class="params">()</span> </span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>工作方法private, 修饰方法public</li>
+</ol>
+<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><ol>
+<li>大量的Factory</li>
+<li>Delegate<ul>
+<li>TypeConverter: <code>TypeConverterDelegater</code></li>
+</ul>
+</li>
+<li>接口定义<strong>功能</strong>, 虚拟类定义<strong>模型</strong>, 然后提供内置实现<em>support</em></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HierarchicalBeanFactory</span> <span class="keyword">extends</span> <span class="title">BeanFactory</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * Return the parent bean factory, or &#123;<span class="doctag">@code</span> null&#125; if there is none.</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function">BeanFactory <span class="title">getParentBeanFactory</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">	 * Return whether the local bean factory contains a bean of the given name,</span></div><div class="line"><span class="comment">	 * ignoring beans defined in ancestor contexts.</span></div><div class="line"><span class="comment">	 * &lt;p&gt;This is an alternative to &#123;<span class="doctag">@code</span> containsBean&#125;, ignoring a bean</span></div><div class="line"><span class="comment">	 * of the given name from an ancestor bean factory.</span></div><div class="line"><span class="comment">	 * <span class="doctag">@param</span> name the name of the bean to query</span></div><div class="line"><span class="comment">	 * <span class="doctag">@return</span> whether a bean with the given name is defined in the local factory</span></div><div class="line"><span class="comment">	 * <span class="doctag">@see</span> BeanFactory#containsBean</span></div><div class="line"><span class="comment">	 */</span></div><div class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">containsLocalBean</span><span class="params">(String name)</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>拆分接口不一定是平级的</li>
+<li>对这个功能一定还有别方法</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> T <span class="title">getObject</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">	<span class="keyword">if</span> (isSingleton()) &#123;</div><div class="line">		<span class="keyword">return</span> (<span class="keyword">this</span>.initialized ? <span class="keyword">this</span>.singletonInstance : getEarlySingletonInstance());</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">return</span> createInstance();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> T <span class="title">createInstance</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</div></pre></td></tr></table></figure>
+<ol>
+<li>虚拟类定义行为模式 具体类定义实现</li>
+</ol>
+<h1 id="all"><a href="#all" class="headerlink" title="all"></a>all</h1><ol>
+<li>使用boolean</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/spring/">spring</a><a href="/tags/源码/">源码</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+
+<nav class="pagination">
+  
+  <a href="/" class="pagination-prev">Prev</a>
+  
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 L`Bat
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

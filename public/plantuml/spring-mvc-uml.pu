@@ -1,0 +1,38 @@
+@startuml
+interface BeanDefinitionDocumentReader <<xml->BeanDefinition>> {
+    + registerBeanDefinitions(Document);
+}
+interface NamespaceHandler <<BeanDefinitionParser Mgr>> {
+    + void registerBeanDefinitionParser();
+}
+note left of NamespaceHandler 
+根据节点名找相应的parser
+end note
+interface BeanDefinitionParser <<Element -> BeanDefinition>>  {
+
+}
+NamespaceHandler *-- BeanDefinitionDocumentReader 
+BeanDefinitionParser *-- NamespaceHandler
+
+interface HandlerMapping <<查找Handler>>
+interface HandlerExceptionResolver <<发生错误怎么办>>
+
+class HandlerInterceptor <<拦截器>>
+
+class ConversionService <<内容转换器>>
+
+class AbstractAnnotationConfigDispatcherServletInitializer
+note bottom of AbstractAnnotationConfigDispatcherServletInitializer 
+注册一个根据注解来配置的DispatcherServlet到Context
+是个WebIntializer
+end note
+
+class ResourceUrlProvider <<一个Listener>>
+note bottom of ResourceUrlProvider 
+当context刷新时，注册PublicResourceResolver的Servlet
+到Context
+处理html css等静态资源的代码和配置 主要在
+org.springframework.web.servlet.resource
+这个包
+end note
+@enduml

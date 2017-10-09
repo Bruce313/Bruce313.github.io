@@ -1,0 +1,756 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>L`Bat的博客 | 为者常成 行者常至</title>
+
+  
+  <meta name="author" content="L`Bat">
+  
+
+  
+
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="L`Bat的博客"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="L`Bat的博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">L`Bat的博客</a>
+    </h1>
+    <p class="site-description">为者常成 行者常至</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+        <li><a href="/2017/07/18/links">链接</a></li>
+      
+        <li><a href="/2017/07/18/aboutme">关于我</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/10/04/my-tool-kit/"><span>my-tool-kit</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/10/04/my-tool-kit/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-10-04T02:05:54.000Z">
+          2017-10-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/08/08/creed/"><span>creed</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/08/08/creed/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-08T03:06:38.000Z">
+          2017-08-08
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <ol>
+<li>控制复杂性是软件开发的根本</li>
+<li></li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/08/05/ut/testable/"><span>testable_code</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/08/05/ut/testable/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-05T09:37:45.000Z">
+          2017-08-05
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>集成测试对用户的交互行为感兴趣，而单元测试往往仅专注于一小段代码</p>
+<p>软件IC是人们在讨论可复用性和基于组件的开发时最喜欢使用的比喻。意思是软件组件应该就像集成电路一样进行组合，这只有在你使用的组件已知是可靠地时候才能行之有效。<br>　　芯片在设计时就考虑了测试——不只是在工厂，在安装时，而且也是在部署现场进行测试。更加复杂的芯片和系统可能还拥有完整的Built-In-SelfTest（BIST）特性，用于在内部运行某种基础级的诊断；或是拥有Test Access Mechanism（TAM），用以提供一种测试装备，允许外部环境提供激励，并收集来自芯片的响应。</p>
+</blockquote>
+<h2 id="untestable的代码"><a href="#untestable的代码" class="headerlink" title="untestable的代码"></a>untestable的代码</h2><ul>
+<li>隐藏的输入</li>
+<li>依赖过多，构建麻烦</li>
+<li>耦合度过高</li>
+<li>非单一职责</li>
+<li>显式的依赖DB NETWORK 未测试的类等(应该依赖接口或者mock)</li>
+</ul>
+<h2 id="验收标准"><a href="#验收标准" class="headerlink" title="验收标准"></a>验收标准</h2><ul>
+<li>覆盖率高(路径被遍历)</li>
+<li>圈复杂度低</li>
+<li>每个输入有唯一的输出</li>
+<li>过去的系统状态和变量可见，或在运行中可查询(例如：事务日志)</li>
+<li>软件的可测试性特征主要表现是设立观察点、控制点、观察装置、驱动装置、隔离装置</li>
+</ul>
+<h2 id="pricinple"><a href="#pricinple" class="headerlink" title="pricinple"></a>pricinple</h2><ul>
+<li>设计之初就考虑了<code>测试模式</code></li>
+<li>承认单元测试不是万能的，只保证部分正确</li>
+<li>尽量少的依赖<blockquote>
+<p>First rule of writing testable code to me is having a good dependency management within the code base, or at least having the least possible dependencies in your object/module relations</p>
+</blockquote>
+</li>
+<li><p>执行路径过多(每个执行路径是不同的代码，都该有个测试与之对应)</p>
+<blockquote>
+<p>应该由单个方法来决定if的条件<br>嵌套的panduan<br>== null<br>> 2</p>
+</blockquote>
+</li>
+<li><p>可控性指系统的状态可受外部控制改变，而不是由内部模块自发的完成</p>
+<blockquote>
+<p>测试环境不可以等待每天晚上1点这个时刻</p>
+</blockquote>
+</li>
+<li>可观测性<blockquote>
+<p>再次，没有必要的描述如何判断哪些文件/数据被GC掉了。无法观测到执行结果集带来的后果是无法精确的预期测试结果。</p>
+</blockquote>
+</li>
+<li>参数的热设定</li>
+<li>系统使用信息统计</li>
+</ul>
+<h2 id="NOT-testable"><a href="#NOT-testable" class="headerlink" title="NOT testable"></a>NOT testable</h2><ol>
+<li>包含不确定的因素<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> string <span class="title">GetTimeOfDay</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    DateTime time = DateTime.Now;</div><div class="line">    <span class="keyword">if</span> (time.Hour &gt;= <span class="number">0</span> &amp;&amp; time.Hour &lt; <span class="number">6</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Night"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (time.Hour &gt;= <span class="number">6</span> &amp;&amp; time.Hour &lt; <span class="number">12</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Morning"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (time.Hour &gt;= <span class="number">12</span> &amp;&amp; time.Hour &lt; <span class="number">18</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Afternoon"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Evening"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>依赖了系统时间</li>
+<li>隐藏了输入（依赖）</li>
+<li>相同测试不同输出</li>
+</ul>
+<h2 id="测什么"><a href="#测什么" class="headerlink" title="测什么"></a>测什么</h2><blockquote>
+<p>CORRECT</p>
+</blockquote>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ol>
+<li>完全的TDD</li>
+<li>实现-&gt; 测试 -&gt; 重构以更testable -&gt; 更多测试 -&gt; 重构测试</li>
+</ol>
+<h2 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h2><ul>
+<li>监视圈复杂度</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/unit-test/">unit test</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/08/05/java/concurrent/basic/"><span>java-concurrent</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/08/05/java/concurrent/basic/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-05T05:44:07.000Z">
+          2017-08-05
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/lang/">lang</a><a href="/tags/java/">java</a><a href="/tags/concurrent/">concurrent</a><a href="/tags/basic/">basic</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/07/20/common/http/cache/"><span>cache</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/20/common/http/cache/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-20T03:45:32.000Z">
+          2017-07-20
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="Vary"><a href="#Vary" class="headerlink" title="Vary"></a>Vary</h2><p>告知缓存服务器：在计算”决定是否要缓存的hash值”时，要把哪些头考虑进去</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/07/20/spring/mvc/controller-handle/"><span>controller-handle</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/20/spring/mvc/controller-handle/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-20T03:11:14.000Z">
+          2017-07-20
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p><img src="" alt="总图"><br><img src="" alt="mvc图"><br>![处理流程图]</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><ul>
+<li>处理<code>OPTIONS</code>请求 allowHeader<strong>可配置</strong></li>
+<li>检查Method是否被支持</li>
+<li>检查<a href="/java/spring/session">session</a></li>
+<li>处理<a href="/common/http/cache">Cache-Controller</a> <strong>可配置</strong></li>
+<li>处理<a href="/common/http/cache">Vary</a> <strong>可配置</strong></li>
+<li>handleRequestInternal<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<p>TODO:</p>
+<ul>
+<li>Session 何时多个线程同步一个session</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/spring/">spring</a><a href="/tags/mvc/">mvc</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/07/20/dp/adapter/"><span>设计模式：适配器模式</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/20/dp/adapter/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-20T02:28:07.000Z">
+          2017-07-20
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p>适配器模式(Adapter Pattern)：将一个接口转换成客户希望的另一个接口，使接口不兼容的那些类可以一起工作，其别名为包装器(Wrapper)</p>
+</blockquote>
+<h2 id="形象"><a href="#形象" class="headerlink" title="形象"></a>形象</h2><ul>
+<li>手机充电口</li>
+</ul>
+<h2 id="参与角色"><a href="#参与角色" class="headerlink" title="参与角色"></a>参与角色</h2><ul>
+<li><strong>Adaptee</strong></li>
+<li><strong>AbstractAdapter</strong> 固定的一端确定</li>
+<li><strong>ConcreteAdapter</strong> </li>
+<li><strong>Target</strong> (可以使调用方，也可以是被调用方)</li>
+</ul>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><ul>
+<li>springmvc中对handler的处理<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//AbstractAdapter</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HandlerAdapter</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(Object handler)</span></span>;</div><div class="line">	<span class="function">ModelAndView <span class="title">handle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Adaptee A</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Controller</span> </span>&#123;</div><div class="line">	<span class="function">ModelAndView <span class="title">handleRequest</span><span class="params">(HttpServletRequest, HttpServletResponse)</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//ConcreteAdapter A</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpRequestHandlerAdapter</span> <span class="keyword">implements</span> <span class="title">HandlerAdapter</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(Object handler)</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> (handler <span class="keyword">instanceof</span> HttpRequestHandler);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> ModelAndView <span class="title">handle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span></span></div><div class="line"><span class="function">			<span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">		((HttpRequestHandler) handler).handleRequest(request, response);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Adaptee B</span></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Servlet</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></div><div class="line"><span class="function">&#125;</span></div><div class="line"><span class="function"><span class="comment">//ConcreteAdapter B</span></span></div><div class="line"><span class="function"><span class="keyword">public</span> class SimpleServletHandlerAdapter implements HandlerAdapter </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(Object handler)</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> (handler <span class="keyword">instanceof</span> Servlet);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> ModelAndView <span class="title">handle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span></span></div><div class="line"><span class="function">			<span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">		((Servlet) handler).service(request, response);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/dp/">dp</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/design-pattern/">design pattern</a><a href="/tags/工程/">工程</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/07/19/java-exception/"><span>java-exception</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/19/java-exception/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-19T03:19:43.000Z">
+          2017-07-19
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>使用cause创建<br>递归<code>getCause</code>找产生错误的根源</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/java/">java</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/基础/">基础</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/07/18/spring-flashmap/"><span>spring-flashmap</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/18/spring-flashmap/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-18T10:07:03.000Z">
+          2017-07-18
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/java/">java</a>, <a href="/categories/java/spring/">spring</a>, <a href="/categories/java/spring/webmvc/">webmvc</a>
+    </span>
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/07/18/spring-webmvc-bootstrap/"><span>spring mvc处理http请求的过程</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/18/spring-webmvc-bootstrap/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-18T09:49:29.000Z">
+          2017-07-18
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p><img src="http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuOekBYZAp4jNIChFBubLI2nM27RYIixFBSZFIyqhKO39vfObWoM1j8AoUr5gQXvNNdv9ga9EQbg9GduQM9phnVwPpzOiVB6iySNwBSzdjN2bvgKeW5GXx4XDp2i6cmDcmSNBKvF0ea0QBfQSdrUIMW5nKd991LUmauAkhXs8QQNmihNt-TvrN21BuM9Fzkv_FcK55nUG0nO4ss2byBIdzUc4rN2bG1ki55viQ0OfTG2w3nW20000" alt="spring框架" title="spring-all-comp@1-15"></p>
+<p><img src="http://www.plantuml.com/plantuml/png/FOxD2i8m48IlPPyYn_RW3tfBG0iYU174DmZDjWsaIKYsec_lrafEk_lDB3Dj9fredXn84nuXqsuT2cnVJxCZ6ra_Du96zFK7SmEoAlo9ERmS9WNeZUr1thHt1jDTnsZzK6q794Q6BM9p4l_r-kwGRF2NqMglG8u_B8xx0nynuMehmWAvKQ6Tm-KDMixauby0" alt="mvc处理流程图" title="spring-mvc-activity@1-13"></p>
+<blockquote>
+<p>介绍servlet<br>实际上是遵循了<a href="/java/servlet/">servlet</a>规范</p>
+</blockquote>
+<ol>
+<li>doPost / doGet 调用<code>DispatcherServlet.doService</code></li>
+<li>request可以存取attribute, 存储原有attrs</li>
+<li>设置常用attrs<ul>
+<li>context</li>
+<li>localeResolver <strong>修改点</strong></li>
+<li>themeResolver <strong>修改点</strong></li>
+<li>处理并设置<code>FlashMap</code>(<a href="/java/spring/webmvc/spring-flashmap/">FlashMap</a>是不同请求间共享数据的方式)</li>
+</ul>
+</li>
+<li><p>处理multipart </p>
+<ul>
+<li>使用<strong>multipartResovler</strong>处理</li>
+<li>如果错误写入错误到attrs(attrs是<strong>MultiValueMap</strong>)</li>
+</ul>
+</li>
+<li><p>在<code>List&lt;HandlerMapping&gt;</code>中找第一个<code>HandlerExecutionChain</code> <strong>修改点</strong></p>
+</li>
+<li>如果是Get请求, 处理302<ul>
+<li>ETag</li>
+<li>lastModified</li>
+<li>设置302</li>
+<li>写回<code>Last-Modified</code></li>
+</ul>
+</li>
+<li>请求<code>SimpleUrlHandlerMapping</code>(<strong>求改点</strong>)得到<code>HandlerExcutionChain</code><ul>
+<li>如果是handler是String，那么去context里拿到Bean作为handler</li>
+<li>在Mapping中获得匹配的(<code>Interceptor.matches</code>)来加入Chain</li>
+</ul>
+</li>
+<li>分配请求到<code>HandlerExecutionChain</code><ul>
+<li>调用<code>HandlerInterceptor.preHandle</code>, 一次调用，有false结束</li>
+<li>调用<code>HandlerInterceptor.handle</code>, 获得MoSimpleControllerHandlerAdapterdelAndView; <a href="/java/spring/webmvc/handlerSimpleControllerHandlerAdapter">handle内部</a></li>
+<li>调用<code>HandlerInterceptor.postHandle</code><blockquote>
+<p>常用实现 <code>SimpleControllerHandlerAdapter</code><br>每个Handler的实现自己提供<strong>Adapter</strong>, 因为handler是个object</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li>如果发生<code>Exception | Throwable</code>，调用<code>preHandle</code>已经返回true的<code>Interceptor.triggerAfterCompletion</code> <strong>修改点</strong></li>
+<li>清理multipart <strong>修改点</strong></li>
+</ol>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li><a href="/java/spring/webmvc/async">异步处理</a></li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/java/">java</a>, <a href="/categories/java/spring/">spring</a>, <a href="/categories/java/spring/webmvc/">webmvc</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/spring/">spring</a><a href="/tags/source/">source</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+
+<nav class="pagination">
+  
+  
+  <a href="/page/2/" class="pagination-next">Next</a>
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 L`Bat
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
