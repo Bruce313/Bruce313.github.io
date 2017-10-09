@@ -63,6 +63,379 @@
 
   
     
+    <h3 class="article-title"><a href="/2017/10/04/my-tool-kit/"><span>my-tool-kit</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/10/04/my-tool-kit/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-10-04T02:05:54.000Z">
+          2017-10-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/08/08/creed/"><span>creed</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/08/08/creed/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-08T03:06:38.000Z">
+          2017-08-08
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <ol>
+<li>控制复杂性是软件开发的根本</li>
+<li></li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/08/05/ut/testable/"><span>testable_code</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/08/05/ut/testable/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-05T09:37:45.000Z">
+          2017-08-05
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>集成测试对用户的交互行为感兴趣，而单元测试往往仅专注于一小段代码</p>
+<p>软件IC是人们在讨论可复用性和基于组件的开发时最喜欢使用的比喻。意思是软件组件应该就像集成电路一样进行组合，这只有在你使用的组件已知是可靠地时候才能行之有效。<br>　　芯片在设计时就考虑了测试——不只是在工厂，在安装时，而且也是在部署现场进行测试。更加复杂的芯片和系统可能还拥有完整的Built-In-SelfTest（BIST）特性，用于在内部运行某种基础级的诊断；或是拥有Test Access Mechanism（TAM），用以提供一种测试装备，允许外部环境提供激励，并收集来自芯片的响应。</p>
+</blockquote>
+<h2 id="untestable的代码"><a href="#untestable的代码" class="headerlink" title="untestable的代码"></a>untestable的代码</h2><ul>
+<li>隐藏的输入</li>
+<li>依赖过多，构建麻烦</li>
+<li>耦合度过高</li>
+<li>非单一职责</li>
+<li>显式的依赖DB NETWORK 未测试的类等(应该依赖接口或者mock)</li>
+</ul>
+<h2 id="验收标准"><a href="#验收标准" class="headerlink" title="验收标准"></a>验收标准</h2><ul>
+<li>覆盖率高(路径被遍历)</li>
+<li>圈复杂度低</li>
+<li>每个输入有唯一的输出</li>
+<li>过去的系统状态和变量可见，或在运行中可查询(例如：事务日志)</li>
+<li>软件的可测试性特征主要表现是设立观察点、控制点、观察装置、驱动装置、隔离装置</li>
+</ul>
+<h2 id="pricinple"><a href="#pricinple" class="headerlink" title="pricinple"></a>pricinple</h2><ul>
+<li>设计之初就考虑了<code>测试模式</code></li>
+<li>承认单元测试不是万能的，只保证部分正确</li>
+<li>尽量少的依赖<blockquote>
+<p>First rule of writing testable code to me is having a good dependency management within the code base, or at least having the least possible dependencies in your object/module relations</p>
+</blockquote>
+</li>
+<li><p>执行路径过多(每个执行路径是不同的代码，都该有个测试与之对应)</p>
+<blockquote>
+<p>应该由单个方法来决定if的条件<br>嵌套的panduan<br>== null<br>> 2</p>
+</blockquote>
+</li>
+<li><p>可控性指系统的状态可受外部控制改变，而不是由内部模块自发的完成</p>
+<blockquote>
+<p>测试环境不可以等待每天晚上1点这个时刻</p>
+</blockquote>
+</li>
+<li>可观测性<blockquote>
+<p>再次，没有必要的描述如何判断哪些文件/数据被GC掉了。无法观测到执行结果集带来的后果是无法精确的预期测试结果。</p>
+</blockquote>
+</li>
+<li>参数的热设定</li>
+<li>系统使用信息统计</li>
+</ul>
+<h2 id="NOT-testable"><a href="#NOT-testable" class="headerlink" title="NOT testable"></a>NOT testable</h2><ol>
+<li>包含不确定的因素<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> string <span class="title">GetTimeOfDay</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    DateTime time = DateTime.Now;</div><div class="line">    <span class="keyword">if</span> (time.Hour &gt;= <span class="number">0</span> &amp;&amp; time.Hour &lt; <span class="number">6</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Night"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (time.Hour &gt;= <span class="number">6</span> &amp;&amp; time.Hour &lt; <span class="number">12</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Morning"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (time.Hour &gt;= <span class="number">12</span> &amp;&amp; time.Hour &lt; <span class="number">18</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Afternoon"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="string">"Evening"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>依赖了系统时间</li>
+<li>隐藏了输入（依赖）</li>
+<li>相同测试不同输出</li>
+</ul>
+<h2 id="测什么"><a href="#测什么" class="headerlink" title="测什么"></a>测什么</h2><blockquote>
+<p>CORRECT</p>
+</blockquote>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><ol>
+<li>完全的TDD</li>
+<li>实现-&gt; 测试 -&gt; 重构以更testable -&gt; 更多测试 -&gt; 重构测试</li>
+</ol>
+<h2 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h2><ul>
+<li>监视圈复杂度</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/unit-test/">unit test</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/08/05/java/concurrent/basic/"><span>java-concurrent</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/08/05/java/concurrent/basic/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-08-05T05:44:07.000Z">
+          2017-08-05
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/lang/">lang</a><a href="/tags/java/">java</a><a href="/tags/concurrent/">concurrent</a><a href="/tags/basic/">basic</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/07/20/common/http/cache/"><span>cache</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/20/common/http/cache/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-20T03:45:32.000Z">
+          2017-07-20
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="Vary"><a href="#Vary" class="headerlink" title="Vary"></a>Vary</h2><p>告知缓存服务器：在计算”决定是否要缓存的hash值”时，要把哪些头考虑进去</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2017/07/20/spring/mvc/controller-handle/"><span>controller-handle</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/07/20/spring/mvc/controller-handle/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-07-20T03:11:14.000Z">
+          2017-07-20
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p><img src="" alt="总图"><br><img src="" alt="mvc图"><br>![处理流程图]</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><ul>
+<li>处理<code>OPTIONS</code>请求 allowHeader<strong>可配置</strong></li>
+<li>检查Method是否被支持</li>
+<li>检查<a href="/java/spring/session">session</a></li>
+<li>处理<a href="/common/http/cache">Cache-Controller</a> <strong>可配置</strong></li>
+<li>处理<a href="/common/http/cache">Vary</a> <strong>可配置</strong></li>
+<li>handleRequestInternal<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<p>TODO:</p>
+<ul>
+<li>Session 何时多个线程同步一个session</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/spring/">spring</a><a href="/tags/mvc/">mvc</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2017/07/20/dp/adapter/"><span>设计模式：适配器模式</span></a></h3>
     
   
@@ -96,7 +469,7 @@
 <li><strong>Target</strong> (可以使调用方，也可以是被调用方)</li>
 </ul>
 <h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><ul>
-<li>springmvc中对handler的处理<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//AbstractAdapter</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HandlerAdapter</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(Object handler)</span></span>;</div><div class="line">	<span class="function">ModelAndView <span class="title">handle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Adaptee A</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Controller</span> </span>&#123;</div><div class="line">	<span class="function">ModelAndView <span class="title">handleRequest</span><span class="params">(HttpServletRequest, HttpServletResponse)</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//ConcreteAdapter A</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpRequestHandlerAdapter</span> <span class="keyword">implements</span> <span class="title">HandlerAdapter</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(Object handler)</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> (handler <span class="keyword">instanceof</span> HttpRequestHandler);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> ModelAndView <span class="title">handle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span></span></div><div class="line">			<span class="keyword">throws</span> Exception &#123;</div><div class="line"></div><div class="line">		((HttpRequestHandler) handler).handleRequest(request, response);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Adaptee B</span></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Servlet</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></div><div class="line">&#125;</div><div class="line"><span class="comment">//ConcreteAdapter B</span></div><div class="line"><span class="keyword">public</span> class SimpleServletHandlerAdapter implements HandlerAdapter &#123;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(Object handler)</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> (handler <span class="keyword">instanceof</span> Servlet);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> ModelAndView <span class="title">handle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span></span></div><div class="line">			<span class="keyword">throws</span> Exception &#123;</div><div class="line"></div><div class="line">		((Servlet) handler).service(request, response);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>springmvc中对handler的处理<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//AbstractAdapter</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HandlerAdapter</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(Object handler)</span></span>;</div><div class="line">	<span class="function">ModelAndView <span class="title">handle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Adaptee A</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Controller</span> </span>&#123;</div><div class="line">	<span class="function">ModelAndView <span class="title">handleRequest</span><span class="params">(HttpServletRequest, HttpServletResponse)</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//ConcreteAdapter A</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpRequestHandlerAdapter</span> <span class="keyword">implements</span> <span class="title">HandlerAdapter</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(Object handler)</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> (handler <span class="keyword">instanceof</span> HttpRequestHandler);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> ModelAndView <span class="title">handle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span></span></div><div class="line"><span class="function">			<span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">		((HttpRequestHandler) handler).handleRequest(request, response);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//Adaptee B</span></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Servlet</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></div><div class="line"><span class="function">&#125;</span></div><div class="line"><span class="function"><span class="comment">//ConcreteAdapter B</span></span></div><div class="line"><span class="function"><span class="keyword">public</span> class SimpleServletHandlerAdapter implements HandlerAdapter </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">supports</span><span class="params">(Object handler)</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> (handler <span class="keyword">instanceof</span> Servlet);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> ModelAndView <span class="title">handle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span></span></div><div class="line"><span class="function">			<span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">		((Servlet) handler).service(request, response);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -357,207 +730,11 @@
 
 
 
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/07/18/links/"><span>links</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/07/18/links/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-07-18T05:46:36.000Z">
-          2017-07-18
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="google"><a href="#google" class="headerlink" title="google"></a>google</h2>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/me/">me</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/07/18/aboutme/"><span>aboutme</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/07/18/aboutme/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-07-18T04:34:13.000Z">
-          2017-07-18
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="哈哈哈"><a href="#哈哈哈" class="headerlink" title="哈哈哈"></a>哈哈哈</h2>
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/me/">me</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2017/07/18/spring-beans-code/"><span>spring bean 代码</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2017/07/18/spring-beans-code/" rel="bookmark">
-        <time class="entry-date published" datetime="2017-07-18T03:19:33.000Z">
-          2017-07-18
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">PropertyDescriptor(PropertyDescriptor x, PropertyDescriptor y) &#123;</div><div class="line">	<span class="keyword">super</span>(x,y);</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (y.baseName != <span class="keyword">null</span>) &#123;</div><div class="line">		baseName = y.baseName;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		baseName = x.baseName;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>以<strong>同类对象</strong>作为参数的构造函数</li>
-<li>Constructor不一定public</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PropertyDescriptor</span> <span class="keyword">extends</span> <span class="title">FeatureDescriptor</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Reference&lt;? extends Class&lt;?&gt;&gt; propertyTypeRef;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>Reference是对原对象的引用 </li>
-<li>虚拟类可以集成具体类</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Assert.isTrue(!(result <span class="keyword">instanceof</span> Optional), <span class="string">"Multi-level Optional usage not supported"</span>);</div></pre></td></tr></table></figure>
-<ol>
-<li>底层需要<strong>断言编程</strong></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">instantiateClass</span><span class="params">(Class&lt;T&gt; clazz)</span> <span class="keyword">throws</span> BeanInstantiationException </span>&#123;</div><div class="line">		Assert.notNull(clazz, <span class="string">"Class must not be null"</span>);</div><div class="line">		<span class="keyword">if</span> (clazz.isInterface()) &#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> BeanInstantiationException(clazz, <span class="string">"Specified class is an interface"</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="keyword">return</span> instantiateClass(clazz.getDeclaredConstructor());</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">catch</span> (NoSuchMethodException ex) &#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> BeanInstantiationException(clazz, <span class="string">"No default constructor found"</span>, ex);</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>将类似于断言和抛出错误的代码放入utils</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">	<span class="function"><span class="keyword">public</span> PropertyEditor <span class="title">getDefaultEditor</span><span class="params">(Class&lt;?&gt; requiredType)</span> </span>&#123;</div><div class="line">	<span class="keyword">if</span> (!<span class="keyword">this</span>.defaultEditorsActive) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (<span class="keyword">this</span>.overriddenDefaultEditors != <span class="keyword">null</span>) &#123;</div><div class="line">		PropertyEditor editor = <span class="keyword">this</span>.overriddenDefaultEditors.get(requiredType);</div><div class="line">		<span class="keyword">if</span> (editor != <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span> editor;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (<span class="keyword">this</span>.defaultEditors == <span class="keyword">null</span>) &#123;</div><div class="line">		createDefaultEditors();</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.defaultEditors.get(requiredType);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Actually register the default editors for this registry instance.</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">createDefaultEditors</span><span class="params">()</span> </span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>工作方法private, 修饰方法public</li>
-</ol>
-<h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><ol>
-<li>大量的Factory</li>
-<li>Delegate<ul>
-<li>TypeConverter: <code>TypeConverterDelegater</code></li>
-</ul>
-</li>
-<li>接口定义<strong>功能</strong>, 虚拟类定义<strong>模型</strong>, 然后提供内置实现<em>support</em></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HierarchicalBeanFactory</span> <span class="keyword">extends</span> <span class="title">BeanFactory</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * Return the parent bean factory, or &#123;<span class="doctag">@code</span> null&#125; if there is none.</div><div class="line">	 */</div><div class="line">	<span class="function">BeanFactory <span class="title">getParentBeanFactory</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * Return whether the local bean factory contains a bean of the given name,</div><div class="line">	 * ignoring beans defined in ancestor contexts.</div><div class="line">	 * &lt;p&gt;This is an alternative to &#123;<span class="doctag">@code</span> containsBean&#125;, ignoring a bean</div><div class="line">	 * of the given name from an ancestor bean factory.</div><div class="line">	 * <span class="doctag">@param</span> name the name of the bean to query</div><div class="line">	 * <span class="doctag">@return</span> whether a bean with the given name is defined in the local factory</div><div class="line">	 * <span class="doctag">@see</span> BeanFactory#containsBean</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">containsLocalBean</span><span class="params">(String name)</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>拆分接口不一定是平级的</li>
-<li>对这个功能一定还有别方法</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> T <span class="title">getObject</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">	<span class="keyword">if</span> (isSingleton()) &#123;</div><div class="line">		<span class="keyword">return</span> (<span class="keyword">this</span>.initialized ? <span class="keyword">this</span>.singletonInstance : getEarlySingletonInstance());</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">return</span> createInstance();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> T <span class="title">createInstance</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</div></pre></td></tr></table></figure>
-<ol>
-<li>虚拟类定义行为模式 具体类定义实现</li>
-</ol>
-<h1 id="all"><a href="#all" class="headerlink" title="all"></a>all</h1><ol>
-<li>使用boolean</li>
-</ol>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/spring/">spring</a><a href="/tags/源码/">源码</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
 
 <nav class="pagination">
   
+  
+  <a href="/page/2/" class="pagination-next">Next</a>
   
 </nav>
     </main>
